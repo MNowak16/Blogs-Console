@@ -21,7 +21,9 @@ namespace BlogsConsole
                 var blog = new Blog { Name = name };
 
                 var db = new BloggingContext();
-                db.AddBlog(blog);
+                db.Blogs.Add(blog);
+                //save changes is the commit to the database
+                db.SaveChanges();
                 logger.Info("Blog added - {name}", name);
 
                 // Display all Blogs from the database
