@@ -30,15 +30,14 @@ namespace BlogsConsole
 
                     if (choice == "2")
                     {
-                        MenuFunction.AddNewBlog();
+                        var name = MenuFunction.AddNewBlog();
+                        logger.Info("Blog added - {name}", name);
                     }
                     if (choice == "3")
                     {
-                        //select which blog to post to
-                            //list all blogs
-                            //get user input
-                            //set BlogId FK
-                            //commit post to proper blog
+
+                        var post = MenuFunction.AddNewPost();
+                        logger.Info("Post added - {post}", post);
                     }
                 }
                 while (choice == "1" || choice == "2" || choice == "3");
