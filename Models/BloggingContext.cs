@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System;
+using System.Linq;
 
 namespace BlogsConsole.Models
 {

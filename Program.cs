@@ -25,33 +25,20 @@ namespace BlogsConsole
 
                     if (choice == "1")
                     {
-                        // Display all Blogs from the database
-                        var db = new BloggingContext();
-                        var query = db.Blogs.OrderBy(b => b.Name);
-
-                        Console.WriteLine("All blogs in the database:");
-                        foreach (var item in query)
-                        {
-                            Console.WriteLine(item.Name);
-                        }
+                        MenuFunction.DisplayAllBlogs();
                     }
+
                     if (choice == "2")
                     {
-                        // Create and save a new Blog
-                        Console.Write("Enter a name for a new Blog: ");
-                        var name = Console.ReadLine();
-
-                        var blog = new Blog { Name = name };
-
-                        var db = new BloggingContext();
-                        db.Blogs.Add(blog);
-                        //save changes is the commit to the database
-                        db.SaveChanges();
-                        logger.Info("Blog added - {name}", name);
+                        MenuFunction.AddNewBlog();
                     }
                     if (choice == "3")
                     {
-
+                        //select which blog to post to
+                            //list all blogs
+                            //get user input
+                            //set BlogId FK
+                            //commit post to proper blog
                     }
                 }
                 while (choice == "1" || choice == "2" || choice == "3");
