@@ -20,6 +20,8 @@ namespace BlogsConsole
                     Console.WriteLine("1) Display all blogs");
                     Console.WriteLine("2) Add a blog");
                     Console.WriteLine("3) Create a post");
+                    Console.WriteLine("4) Display posts");
+                    ////enter q to quit
 
                     choice = Console.ReadLine();
 
@@ -39,8 +41,12 @@ namespace BlogsConsole
                         var post = MenuFunction.AddNewPost();
                         logger.Info("Post added - {post}", post);
                     }
+                    if (choice == "4")
+                    {
+                        MenuFunction.DisplayAllPostsFromBlog();
+                    }
                 }
-                while (choice == "1" || choice == "2" || choice == "3");
+                while (choice == "1" || choice == "2" || choice == "3" || choice == "4");
             }
             catch (Exception ex)
             {

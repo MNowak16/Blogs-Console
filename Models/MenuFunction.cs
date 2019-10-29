@@ -31,6 +31,30 @@ namespace BlogsConsole
             }
         }
 
+
+        public static void DisplayAllPostsFromBlog()
+        {
+            // Display all Blogs from the database from a specific blog
+            Console.WriteLine("Select the blog's posts to display:");
+            MenuFunction.DisplayAllBlogsWithIDs();
+            var input = Console.ReadLine();
+            
+            //query the db where the input = BlogId
+            var db = new BloggingContext();
+            var query = db.Blogs.Where(s => s.BlogId.ToString() == input).OrderBy(s => s.Name);
+
+            //display all query results
+            Console.WriteLine("All posts from {0}:", input);
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Name);
+            }
+
+            //add space for program legibility
+            Console.ReadLine();
+        }
+
+
         public static string AddNewBlog()
         {
             // Create and save a new Blog
