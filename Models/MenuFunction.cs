@@ -12,7 +12,9 @@ namespace BlogsConsole
             var db = new BloggingContext();
             var query = db.Blogs.OrderBy(b => b.Name);
 
-            Console.WriteLine("All blogs in the database:");
+            var bCount = query.Count();
+
+            Console.WriteLine("{0} blogs in the database:", bCount);
             foreach (var item in query)
             {
                 Console.WriteLine(item.Name);
@@ -24,13 +26,14 @@ namespace BlogsConsole
             var db = new BloggingContext();
             var query = db.Blogs.OrderBy(b => b.BlogId);
 
-            Console.WriteLine("All blogs in the database:");
+            var bCount = query.Count();
+
+            Console.WriteLine("{0} blogs in the database:", bCount);
             foreach (var item in query)
             {
                 Console.WriteLine("{0}) {1}", item.BlogId, item.Name);
             }
         }
-
 
         public static void DisplayAllPostsFromBlog()
         {
@@ -41,19 +44,18 @@ namespace BlogsConsole
             
             //query the db where the input = BlogId
             var db = new BloggingContext();
-            var query = db.Blogs.Where(s => s.BlogId.ToString() == input).OrderBy(s => s.Name);
+            var query = db.Posts.Where(s => s.BlogId.ToString() == input).OrderBy(s => s.Title);
+            var row = db.Blogs.Where(s => s.BlogId.ToString() == input).FirstOrDefault();
+            var pCount = query.Count();
 
             //display all query results
-            Console.WriteLine("All posts from {0}:", input);
+            Console.WriteLine("{0} posts from {1}:", pCount, row.Name);
             foreach (var item in query)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Title);
             }
-
-            //add space for program legibility
-            Console.ReadLine();
+            Console.WriteLine();
         }
-
 
         public static string AddNewBlog()
         {
