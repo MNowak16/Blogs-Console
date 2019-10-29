@@ -35,28 +35,22 @@ namespace BlogsConsole
                     if (choice == "1")
                     {
                         logger.Info("Option 1 selected");
-                        Console.WriteLine();
                         MenuFunction.DisplayAllBlogs();
                     }
 
                     if (choice == "2")
                     {
                         logger.Info("Option 2 selected");
-                        Console.WriteLine();
                         var name = MenuFunction.AddNewBlog();
-                        logger.Info("Blog added - {name}", name);
                     }
                     if (choice == "3")
                     {
                         logger.Info("Option 3 selected");
-                        Console.WriteLine();
                         var post = MenuFunction.AddNewPost();
-                        logger.Info("Post added - {post}", post);
                     }
                     if (choice == "4")
                     {
                         logger.Info("Option 4 selected");
-                        Console.WriteLine();
                         MenuFunction.DisplayAllPostsFromBlog();
                     }
                 }
