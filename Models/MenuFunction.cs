@@ -51,10 +51,13 @@ namespace BlogsConsole
             var pCount = query.Count();
 
             //display all query results
-            Console.WriteLine("{0} post(s) from {1}:", pCount, row.Name);
+            Console.WriteLine("{0} post(s) returned", pCount);
             foreach (var item in query)
             {
-                Console.WriteLine(item.Title);
+                Console.WriteLine($"Blog: {row.Name}");
+                Console.WriteLine($"Title: {item.Title}");
+                Console.WriteLine($"Content: {item.Content}");
+                Console.WriteLine("");
             }
             Console.WriteLine();
         }
