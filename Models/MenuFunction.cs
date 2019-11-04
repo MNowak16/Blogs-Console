@@ -71,6 +71,7 @@ namespace BlogsConsole
             while (name == "")
             {
                 Console.WriteLine("Blog name cannot be null");
+                Console.WriteLine("");
                 Console.Write("Enter a name for a new Blog: ");
                 name = Console.ReadLine();
                 logger.Error("Blog name cannot be null");
@@ -99,6 +100,7 @@ namespace BlogsConsole
                 Console.WriteLine("Invalid selection. Please select the blog you would like to post to: ");
                 DisplayAllBlogsWithIDs();
                 logger.Error("Invalid blog ID");
+                id = Console.ReadLine();
             }
 
             //check id is a valid id
@@ -109,6 +111,8 @@ namespace BlogsConsole
                 Console.WriteLine("Invalid ID. Please select the blog you would like to post to: ");
                 DisplayAllBlogsWithIDs();
                 logger.Error("There are no blogs saved with that ID");
+                value = Convert.ToInt32(Console.ReadLine());
+                exists = db2.Blogs.Any(b => b.BlogId == value);
             }
             
             Console.Write("Enter a title for the post: ");
@@ -117,6 +121,7 @@ namespace BlogsConsole
             while (postTitle == "")
             {
                 Console.WriteLine("Post title cannot be null");
+                Console.WriteLine("");
                 Console.Write("Enter a title for the post: ");
                 postTitle = Console.ReadLine();
                 logger.Error("Post title cannot be null");
